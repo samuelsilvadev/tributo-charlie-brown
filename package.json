@@ -1,0 +1,16 @@
+{
+  "name": "tributo-charlie-brown",
+  "version": "1.0.0",
+  "description": "Page of the tribute to the singer Charlie Brown",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "charlie",
+    "brow",
+    "tribute"
+  ],
+  "author": "Samuel Silva",
+  "license": "ISC"
+}

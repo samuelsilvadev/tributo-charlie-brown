@@ -1,0 +1,22 @@
+{
+  "name": "tributo-charlie-brown",
+  "description": "Page of the tribute to the singer Charlie Brown",
+  "main": "app.js",
+  "authors": [
+    "Samuel Silva"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "charlie",
+    "brow",
+    "tribute"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

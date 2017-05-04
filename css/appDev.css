@@ -37,3 +37,7 @@ header > img:hover{
 header > h3 {
 	font-style: italic;
 }
+
+footer{
+	text-align: center;
+}

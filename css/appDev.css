@@ -18,3 +18,18 @@
 .flex-container{
 	display: flex;
 }
+
+header.flex-container{
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+header > img {
+	border-radius: 50%;
+	filter: grayscale(100%);
+}
+
+header > img:hover{
+	filter: grayscale(0%);
+}

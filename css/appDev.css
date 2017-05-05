@@ -38,6 +38,16 @@ header > h3 {
 	font-style: italic;
 }
 
+main > h3{
+	position: relative;
+	top: 20px;
+	text-align: center;
+}
+
+main > div > ul {
+	padding: 50px;
+}
+
 footer{
 	text-align: center;
 }

@@ -45,8 +45,20 @@ main > h3{
 	text-align: center;
 }
 
+main li{
+	cursor: pointer;
+}
+
+main li:hover{
+	color: #fff;
+}
+
 main > div > ul {
 	padding: 50px;
+}
+
+.detalhes-li{
+	display: none;
 }
 
 footer{

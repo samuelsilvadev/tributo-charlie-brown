@@ -6,14 +6,14 @@
 	font-weight: 200;
 }
 
-.dark-primary-color    { background: #455A64; }
-.default-primary-color { background: #607D8B; }
-.light-primary-color   { background: #CFD8DC; }
-.text-primary-color    { color: #FFFFFF; }
+.dark-primary-color    { background: #455a64; }
+.default-primary-color { background: #607d8b; }
+.light-primary-color   { background: #cfd8dc; }
+.text-primary-color    { color: #ffffff; }
 .accent-color          { background: #009688; }
 .primary-text-color    { color: #212121; }
 .secondary-text-color  { color: #757575; }
-.divider-color         { border-color: #BDBDBD; }
+.divider-color         { border-color: #bdbdbd; }
 
 .flex-container{
 	display: flex;

@@ -1,6 +1,6 @@
 
-document.querySelectorAll("main ul li").forEach((li) => {
-	li.addventListener("click", (e) => {
-		console.log(e);
+document.querySelectorAll("main ul li").forEach(function(a){
+	a.addEventListener("click", function(b){
+		console.log(b);
 	});
 });

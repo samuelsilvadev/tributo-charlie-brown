@@ -64,3 +64,20 @@ main > div > ul {
 footer{
 	text-align: center;
 }
+
+/* testando novo layout*/
+
+.square{
+	box-sizing: border-box;
+	width: 50%;
+	padding: 40px;
+}
+
+.square h1{
+	text-align: center;
+}
+
+.left{
+	position: relative;
+	left: 50%;
+}

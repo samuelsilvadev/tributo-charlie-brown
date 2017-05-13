@@ -4,3 +4,5 @@ document.querySelectorAll("main ul li").forEach(function(a){
 		console.log(b.target.classList.value)
 	});
 });
+
+Object.keys(textos).forEach(i => console.log(`${i}:${textos[i].text}`));

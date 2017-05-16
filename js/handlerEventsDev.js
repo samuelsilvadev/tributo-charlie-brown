@@ -5,4 +5,18 @@ document.querySelectorAll("main ul li").forEach(function(a){
 	});
 });
 
-Object.keys(textos).forEach(i => console.log(`${i}:${textos[i].text}`));
+
+Object.keys(textos).forEach(
+	i => createElements(textos[i])
+);
+
+function createElements(obj){
+	document.querySelector("#dados-da-historia").innerHTML += `
+		<section class="square accent-color">
+			<article>
+				<h1> ${obj.title} </h1>
+				<p> ${obj.text}	</p>
+			</article>
+		</section>	
+	`;
+}

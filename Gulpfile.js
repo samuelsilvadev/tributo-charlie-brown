@@ -4,6 +4,7 @@ const jshint = require('gulp-jshint');
 const uglify = require('gulp-uglify');
 const concat = require('gulp-concat');
 const rename = require('gulp-rename');
+const babel = require('gulp-babel');
  
 const filesJs = './js/*.js';
 
@@ -21,8 +22,14 @@ gulp.task('dist', function() {
     .pipe(gulp.dest('./dist'));
 });
 
+gulp.task('babel', () => {
+    return gulp.src(filesJs)
+        .pipe(babel({
+            presets: ['es2015']
+        }))
+        .pipe(gulp.dest('dist'));
+});
+
 gulp.task('default', function () {
-    console.log('hello world');
-    //gulp.run('lint', 'dist');
-    gulp.watch(filesJs, ['lint', 'dist']);
+   gulp.watch(filesJs, ['lint', 'dist']);
 });

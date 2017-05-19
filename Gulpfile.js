@@ -23,8 +23,6 @@ gulp.task('dist', function() {
 
 gulp.task('default', function () {
     console.log('hello world');
-    gulp.run('lint', 'dist');
-    gulp.watch(files, function(evt) {
-        gulp.run('lint', 'dist');
-    });
+    //gulp.run('lint', 'dist');
+    gulp.watch(filesJs, ['lint', 'dist']);
 });

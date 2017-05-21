@@ -7,7 +7,8 @@ const rename = require('gulp-rename');
 const babel = require('gulp-babel');
 const clean = require('gulp-clean');
 const imagemin = require('gulp-imagemin');
- 
+const runSequence = require('run-sequence');
+
 const filesJs = './dist/*.js';
 
 gulp.task('clean', () => {
@@ -40,7 +41,9 @@ gulp.task('dist', () => {
 gulp.task('image', () => {
     return gulp.src('./img/*')
         .pipe(imagemin())
-        .pipe(gulp.dest('dist/images'))
+        .pipe(gulp.dest('dist/img/'))
 });
 
-gulp.task('default', ['clean', 'babel', 'dist']);
+gulp.task('default', () => {
+    return runSequence('clean', 'babel', 'dist', 'image');
+});

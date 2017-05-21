@@ -6,6 +6,7 @@ const concat = require('gulp-concat');
 const rename = require('gulp-rename');
 const babel = require('gulp-babel');
 const clean = require('gulp-clean');
+const imagemin = require('gulp-imagemin');
  
 const filesJs = './dist/*.js';
 
@@ -35,5 +36,11 @@ gulp.task('dist', () => {
     .pipe(uglify())
     .pipe(gulp.dest('./dist'));
 });
+
+gulp.task('image', () =>
+    gulp.src('./img/*')
+        .pipe(imagemin())
+        .pipe(gulp.dest('dist/images'))
+);
 
 gulp.task('default', ['clean', 'babel', 'dist']);

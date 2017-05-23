@@ -8,8 +8,10 @@ const babel = require('gulp-babel');
 const clean = require('gulp-clean');
 const imagemin = require('gulp-imagemin');
 const runSequence = require('run-sequence');
+const cleanCSS = require('gulp-clean-css');
 
 const filesJs = './dist/*.js';
+const filesCss = './css/*.css';
 
 gulp.task('clean', () => {
   return gulp.src('./dist/*', {read: false})
@@ -38,6 +40,13 @@ gulp.task('dist', () => {
     .pipe(gulp.dest('./dist'));
 });
 
+gulp.task('css', function() {
+  return gulp.src(filesCss)
+    .pipe(rename('dist.min.css'))
+    .pipe(cleanCSS({compatibility: 'ie8'}))
+    .pipe(gulp.dest('dist'));
+});
+
 gulp.task('image', () => {
     return gulp.src('./img/*')
         .pipe(imagemin())
@@ -45,5 +54,5 @@ gulp.task('image', () => {
 });
 
 gulp.task('default', () => {
-    return runSequence('clean', 'babel', 'dist', 'image');
+    return runSequence('clean', 'babel', 'dist', 'image', 'css');
 });

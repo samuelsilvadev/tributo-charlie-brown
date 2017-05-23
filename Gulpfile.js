@@ -12,6 +12,7 @@ const cleanCSS = require('gulp-clean-css');
 
 const filesJs = './dist/*.js';
 const filesCss = './css/*.css';
+const folderDestiny = 'dist';
 
 gulp.task('clean', () => {
   return gulp.src('./dist/*', {read: false})
@@ -29,7 +30,7 @@ gulp.task('babel', () => {
         .pipe(babel({
             presets: ['es2015']
         }))
-        .pipe(gulp.dest('dist'));
+        .pipe(gulp.dest(folderDestiny));
 });
 
 gulp.task('dist', () => {
@@ -37,20 +38,20 @@ gulp.task('dist', () => {
     .pipe(concat('./dist'))
     .pipe(rename('dist.min.js'))
     .pipe(uglify())
-    .pipe(gulp.dest('./dist'));
+    .pipe(gulp.dest(folderDestiny));
 });
 
-gulp.task('css', function() {
+gulp.task('css', () => {
   return gulp.src(filesCss)
     .pipe(rename('dist.min.css'))
     .pipe(cleanCSS({compatibility: 'ie8'}))
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest(folderDestiny));
 });
 
 gulp.task('image', () => {
     return gulp.src('./img/*')
         .pipe(imagemin())
-        .pipe(gulp.dest('dist/img/'))
+        .pipe(gulp.dest(folderDestiny+'/img/'))
 });
 
 gulp.task('default', () => {

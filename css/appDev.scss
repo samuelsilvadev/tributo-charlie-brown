@@ -10,7 +10,7 @@ $text-primary-color:#ffffff;
 $accent-color:#009688; 
 $primary-text-color:#212121; 
 $secondary-text-color:#757575; 
-$test-color:#FF0000; 
+$test-color:#FF0000;
 // fim cores //
 
 body{
@@ -23,4 +23,7 @@ main{
 
 header{
     display: flex;
+    flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }

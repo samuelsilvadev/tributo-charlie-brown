@@ -1,0 +1,26 @@
+
+/* SCSS */
+// Baseado em {}
+
+// cores //
+$dark-primary-color: #455a64;
+$default-primary-color:#607d8b; 
+$light-primary-color:#cfd8dc; 
+$text-primary-color:#ffffff; 
+$accent-color:#009688; 
+$primary-text-color:#212121; 
+$secondary-text-color:#757575; 
+$test-color:#FF0000; 
+// fim cores //
+
+body{
+    background-color: $default-primary-color;
+}
+
+main{
+    background-color:$dark-primary-color;
+}
+
+header{
+    display: flex;
+}

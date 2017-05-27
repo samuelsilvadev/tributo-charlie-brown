@@ -26,4 +26,15 @@ header{
     flex-direction: column;
 	justify-content: center;
 	align-items: center;
+    & > img{
+        border-radius: 50%;
+        filter: grayscale(100%);
+        transition: all 2s ease-out;
+        &:hover{
+            filter: grayscale(0%);
+        }
+    }
+    & > h3{
+        font-style: italic;
+    }
 }

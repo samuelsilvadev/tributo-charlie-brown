@@ -19,6 +19,17 @@ body{
 
 main{
     background-color:$dark-primary-color;
+    & > h3{
+        position: relative;
+	    top: 20px;
+	    text-align: center;
+    }
+    &:li{
+        cursor: pointer;
+        &:hover{
+            color:$text-primary-color;
+        }
+    }
 }
 
 header{

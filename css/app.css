@@ -1,0 +1,30 @@
+/* SCSS */
+body {
+  background-color: #607d8b; }
+
+main {
+  background-color: #455a64; }
+  main > h3 {
+    position: relative;
+    top: 20px;
+    text-align: center; }
+  main li {
+    cursor: pointer; }
+    main li:hover {
+      color: #ffffff; }
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  header > img {
+    border-radius: 50%;
+    filter: grayscale(100%);
+    transition: all 2s ease-out; }
+    header > img:hover {
+      filter: grayscale(0%); }
+  header > h3 {
+    font-style: italic; }
+
+/*# sourceMappingURL=app.css.map */

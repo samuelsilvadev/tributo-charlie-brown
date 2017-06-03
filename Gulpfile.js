@@ -55,6 +55,22 @@ gulp.task('image', () => {
         .pipe(gulp.dest(folderDestiny+'/img/'))
 });
 
+/**
+ * Sass configs
+ */
+
+const sassDevOptions = {
+  outputStyle: 'expanded'
+}
+
+const sassProdOptions = {
+  outputStyle: 'compressed'
+}
+
+gulp.task('sassdev', () => {
+  
+});
+
 gulp.task('default', () => {
     return runSequence('clean', 'babel', 'dist', 'image', 'css');
 });

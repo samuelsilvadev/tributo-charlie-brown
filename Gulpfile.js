@@ -9,6 +9,7 @@ const clean = require('gulp-clean');
 const imagemin = require('gulp-imagemin');
 const runSequence = require('run-sequence');
 const cleanCSS = require('gulp-clean-css');
+const sass = require('gulp-sass');
 
 const filesJs = './dist/*.js';
 const filesCss = './css/*.css';

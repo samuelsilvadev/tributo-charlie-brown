@@ -58,24 +58,15 @@ gulp.task('image', () => {
 /**
  * Sass configs
  */
-
-const sassDevOptions = {
-    outputStyle: 'expanded'
-}
-
-const sassProdOptions = {
-    outputStyle: 'compressed'
-}
-
 gulp.task('sassdev', () => {
     return gulp.src('./css/*.scss')
-    .pipe(sass(sassDevOptions).on('error', sass.logError))
+    .pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
     .pipe(gulp.dest(folderDestiny));
 });
 
 gulp.task('sassprod', () => {
     return gulp.src('./css/*.scss')
-    .pipe(sass(sassProdOptions).on('error', sass.logError))
+    .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
     .pipe(gulp.dest(folderDestiny));
 });
 

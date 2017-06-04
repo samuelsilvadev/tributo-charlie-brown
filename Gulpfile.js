@@ -60,15 +60,23 @@ gulp.task('image', () => {
  */
 
 const sassDevOptions = {
-  outputStyle: 'expanded'
+    outputStyle: 'expanded'
 }
 
 const sassProdOptions = {
-  outputStyle: 'compressed'
+    outputStyle: 'compressed'
 }
 
 gulp.task('sassdev', () => {
-  
+    return gulp.src('./css/*.scss')
+    .pipe(sass(sassDevOptions))
+    .pipe(gulp.dest(folderDestiny));
+});
+
+gulp.task('sassprod', () => {
+    return gulp.src('./css/*.scss')
+    .pipe(sass(sassProdOptions))
+    .pipe(gulp.dest(folderDestiny));
 });
 
 gulp.task('default', () => {

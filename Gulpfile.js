@@ -69,13 +69,13 @@ const sassProdOptions = {
 
 gulp.task('sassdev', () => {
     return gulp.src('./css/*.scss')
-    .pipe(sass(sassDevOptions))
+    .pipe(sass(sassDevOptions).on('error', sass.logError))
     .pipe(gulp.dest(folderDestiny));
 });
 
 gulp.task('sassprod', () => {
     return gulp.src('./css/*.scss')
-    .pipe(sass(sassProdOptions))
+    .pipe(sass(sassProdOptions).on('error', sass.logError))
     .pipe(gulp.dest(folderDestiny));
 });
 

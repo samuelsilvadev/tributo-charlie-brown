@@ -1,6 +1,7 @@
 const autoPrefixBrowserList = ['last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'];
 
 const gulp = require('gulp');
+const del = require('del');
 const concat = require('gulp-concat');
 const uglify = require('gulp-uglify');
 const sass = require('gulp-sass');
@@ -42,10 +43,17 @@ gulp.task('scripts', () => {
 	return gulp.src(['./scripts/**/*.js'])
 		.pipe(plumber())
 		.on('error', console.error)
+		.pipe(concat('build.js'))
 		.pipe(gulp.dest('./dist/scripts'))
 		.pipe(browserSync.reload({ stream: true }));
 });
 
+gulp.task('scripts-clean', function () {
+	return del([
+		'./dist/scripts/appDev.js',
+		'./dist/scripts/handlerEventsDev.js',
+	]);
+});
 
 gulp.task('scripts-deploy-babel', () => {
 	return gulp.src('./dist/scripts/**/*.js')
@@ -53,12 +61,12 @@ gulp.task('scripts-deploy-babel', () => {
 			presets: ['env']
 		}))
 		.pipe(gulp.dest(file => file.base));
-}
-);
+});
 
 gulp.task('scripts-deploy-end', () => {
 	return gulp.src('./dist/scripts/**/*.js')
 		.pipe(plumber())
+		.pipe(concat('build.js'))
 		.pipe(uglify())
 		.pipe(gulp.dest(file => file.base));
 });
@@ -129,13 +137,13 @@ gulp.task('scaffold', () => {
 	]);
 });
 
-gulp.task('default', ['html', 'browserSync', 'scripts', 'styles'], () => {
-	gulp.watch('./scripts/**', ['scripts']);
+gulp.task('default', ['html', 'browserSync', 'scripts', 'scripts-clean', 'styles'], () => {
+	gulp.watch('./scripts/**', ['scripts', 'scripts-clean']);
 	gulp.watch('./styles/**', ['styles']);
 	gulp.watch('./images/**', ['images']);
 	gulp.watch('./*.html', ['html']);
 });
 
 gulp.task('deploy', () => {
-	runSequence('clean', 'scaffold', 'scripts-deploy-babel', 'scripts-deploy-end', 'styles-deploy', 'images-deploy')
+	runSequence('clean', 'scaffold', 'scripts-deploy-babel', 'scripts-deploy-end', 'styles-deploy', 'scripts-clean', 'images-deploy')
 });

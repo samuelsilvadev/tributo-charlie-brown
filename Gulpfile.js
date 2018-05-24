@@ -16,6 +16,7 @@ const browserify = require('browserify');
 const source = require('vinyl-source-stream');
 const babel = require('gulp-babel');
 const runSequence = require('run-sequence');
+const clean = require('gulp-clean');
 
 gulp.task('browserSync', () => {
 	browserSync({
@@ -122,9 +123,8 @@ gulp.task('html', () => {
 });
 
 gulp.task('clean', () => {
-	return shell.task([
-		'rm -rf ./dist'
-	]);
+	return gulp.src('dist', { read: false })
+		.pipe(clean());
 });
 
 gulp.task('scaffold', () => {

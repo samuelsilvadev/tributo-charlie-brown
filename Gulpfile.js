@@ -137,7 +137,7 @@ gulp.task('scaffold', () => {
 	]);
 });
 
-gulp.task('default', ['html', 'browserSync', 'scripts', 'scripts-clean', 'styles'], () => {
+gulp.task('default', ['html', 'browserSync', 'scripts', 'scripts-clean', 'styles', 'images-deploy'], () => {
 	gulp.watch('./scripts/**', ['scripts', 'scripts-clean']);
 	gulp.watch('./styles/**', ['styles']);
 	gulp.watch('./images/**', ['images']);

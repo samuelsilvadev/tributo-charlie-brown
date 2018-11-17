@@ -4,6 +4,7 @@
 	"description": "Page of the tribute to the singer Charlie Brown",
 	"main": "app.js",
 	"scripts": {
+		"start": "node_modules/.bin/gulp",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"keywords": [
@@ -12,28 +13,29 @@
 		"tribute"
 	],
 	"author": "Samuel Silva",
-	"license": "ISC",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:samuelsilvadev/tributo-charlie-brown.git"
+	},
 	"devDependencies": {
 		"babel-core": "^6.26.3",
 		"babel-preset-env": "^1.7.0",
-		"browser-sync": "^2.24.4",
-		"browserify": "^16.2.2",
+		"browser-sync": "^2.26.3",
 		"del": "^3.0.0",
-		"gulp": "^3.9.1",
+		"gulp": "^4.0.0",
 		"gulp-autoprefixer": "^3.1.1",
 		"gulp-babel": "^7.0.1",
 		"gulp-clean": "^0.4.0",
 		"gulp-clean-css": "^3.9.4",
 		"gulp-concat": "^2.6.1",
-		"gulp-imagemin": "^3.1.1",
+		"gulp-imagemin": "^5.0.3",
 		"gulp-plumber": "^1.1.0",
 		"gulp-sass": "^3.1.0",
 		"gulp-sequence": "^0.4.6",
 		"gulp-shell": "^0.5.2",
 		"gulp-sourcemaps": "^2.4.1",
-		"gulp-uglify": "^2.0.1",
-		"run-sequence": "^2.2.1",
-		"vinyl-source-stream": "^2.0.0"
+		"gulp-uglify": "^2.0.1"
 	},
 	"dependencies": {}
 }

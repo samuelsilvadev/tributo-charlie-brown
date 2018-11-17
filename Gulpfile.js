@@ -12,10 +12,7 @@ const browserSync = require('browser-sync');
 const autoprefixer = require('gulp-autoprefixer');
 const shell = require('gulp-shell');
 const plumber = require('gulp-plumber');
-const browserify = require('browserify');
-const source = require('vinyl-source-stream');
 const babel = require('gulp-babel');
-const runSequence = require('run-sequence');
 const clean = require('gulp-clean');
 
 gulp.task('browserSync', () => {
@@ -123,27 +120,28 @@ gulp.task('html', () => {
 });
 
 gulp.task('clean', () => {
-	return gulp.src('dist', { read: false })
+	return gulp.src('dist', { read: false, allowEmpty: true })
 		.pipe(clean());
 });
 
-gulp.task('scaffold', () => {
-	return shell.task([
+gulp.task('scaffold', (done) => {
+	shell.task([
 		'mkdir ./dist',
 		'mkdir ./dist/fonts',
 		'mkdir ./dist/images',
 		'mkdir ./dist/scripts',
 		'mkdir ./dist/styles'
 	]);
+
+	done();
 });
 
-gulp.task('default', ['html', 'browserSync', 'scripts', 'scripts-clean', 'styles', 'images-deploy'], () => {
-	gulp.watch('./scripts/**', ['scripts', 'scripts-clean']);
-	gulp.watch('./styles/**', ['styles']);
-	gulp.watch('./images/**', ['images']);
-	gulp.watch('./*.html', ['html']);
-});
+gulp.task('deploy', gulp.series('clean', 'scaffold', 'html', 'scripts', 'scripts-deploy-babel', 'scripts-deploy-end', 'styles-deploy', 'scripts-clean', 'images-deploy'));
 
-gulp.task('deploy', () => {
-	runSequence('clean', 'scaffold', 'scripts-deploy-babel', 'scripts-deploy-end', 'styles-deploy', 'scripts-clean', 'images-deploy')
-});
+gulp.task('default', gulp.parallel(['html', 'browserSync', 'scripts', 'scripts-clean', 'styles', 'images-deploy'], () => {
+	gulp.watch('./scripts/**', gulp.parallel('scripts', 'scripts-clean'));
+	gulp.watch('./styles/**', gulp.series('styles'));
+	gulp.watch('./images/**',  gulp.series('images'));
+	gulp.watch('./*.html',  gulp.series('html'));
+}));
+

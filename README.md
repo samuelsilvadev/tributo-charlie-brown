@@ -5,8 +5,7 @@ This repository contains a little about Charlie Brown
 ## How to install
 
 - git clone
-- Put the folder inside a webserver. eg: XAMPP, apache2 or install [http-server](https://www.npmjs.com/package/http-server)
-- gulp
+- npm start
 
 ## Contatct
 
